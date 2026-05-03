@@ -26,6 +26,9 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'node-server',
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/pricing', '/contact'],
+    },
   },
 })
