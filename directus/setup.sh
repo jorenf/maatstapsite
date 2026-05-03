@@ -126,7 +126,9 @@ while IFS= read -r col; do
     warn "  $name — bestaat al, sla over"
     continue
   fi
-  api_post "/collections" "$col" > /dev/null
+  # "schema": {} is required to create an actual database table (not just a folder)
+  body=$(echo "$col" | jq '. + {"schema": {}}')
+  api_post "/collections" "$body" > /dev/null
   success "  $name — aangemaakt"
 done <<< "$COLLECTIONS"
 
