@@ -1,0 +1,129 @@
+{
+  "collections": [
+    {
+      "collection": "site_settings",
+      "meta": { "singleton": true, "icon": "settings", "note": "Globale site-instellingen" }
+    },
+    {
+      "collection": "hero",
+      "meta": { "singleton": true, "icon": "home", "note": "Homepage hero sectie" }
+    },
+    {
+      "collection": "testimonials",
+      "meta": { "icon": "format_quote", "sort_field": "sort" }
+    },
+    {
+      "collection": "stats",
+      "meta": { "icon": "bar_chart", "sort_field": "sort" }
+    },
+    {
+      "collection": "features",
+      "meta": { "icon": "stars", "sort_field": "sort" }
+    },
+    {
+      "collection": "pricing_plans",
+      "meta": { "icon": "payments", "sort_field": "sort" }
+    },
+    {
+      "collection": "faqs",
+      "meta": { "icon": "help", "sort_field": "sort" }
+    },
+    {
+      "collection": "contacts",
+      "meta": { "icon": "person", "note": "Contactformulier inzendingen" }
+    },
+    {
+      "collection": "tickets",
+      "meta": { "icon": "confirmation_number", "note": "Support tickets" }
+    },
+    {
+      "collection": "ticket_comments",
+      "meta": { "icon": "comment", "hidden": true }
+    }
+  ],
+  "fields": [
+    { "collection": "site_settings", "field": "site_name",    "type": "string" },
+    { "collection": "site_settings", "field": "tagline",      "type": "string" },
+    { "collection": "site_settings", "field": "footer_text",  "type": "string" },
+    { "collection": "site_settings", "field": "email",        "type": "string" },
+    { "collection": "site_settings", "field": "phone",        "type": "string" },
+    { "collection": "site_settings", "field": "address",      "type": "text" },
+    { "collection": "site_settings", "field": "kvk",          "type": "string" },
+    { "collection": "site_settings", "field": "btw",          "type": "string" },
+
+    { "collection": "hero", "field": "badge_text",     "type": "string" },
+    { "collection": "hero", "field": "headline",       "type": "string" },
+    { "collection": "hero", "field": "headline_accent","type": "string" },
+    { "collection": "hero", "field": "subtext",        "type": "text" },
+    { "collection": "hero", "field": "cta_primary",    "type": "string" },
+    { "collection": "hero", "field": "cta_secondary",  "type": "string" },
+    { "collection": "hero", "field": "trust_1",        "type": "string" },
+    { "collection": "hero", "field": "trust_2",        "type": "string" },
+    { "collection": "hero", "field": "trust_3",        "type": "string" },
+
+    { "collection": "testimonials", "field": "sort",    "type": "integer" },
+    { "collection": "testimonials", "field": "quote",   "type": "text" },
+    { "collection": "testimonials", "field": "name",    "type": "string" },
+    { "collection": "testimonials", "field": "role",    "type": "string" },
+    { "collection": "testimonials", "field": "style",   "type": "string", "meta": { "note": "teal | white | dark" } },
+
+    { "collection": "stats", "field": "sort",  "type": "integer" },
+    { "collection": "stats", "field": "value", "type": "string" },
+    { "collection": "stats", "field": "label", "type": "string" },
+    { "collection": "stats", "field": "style", "type": "string", "meta": { "note": "teal | dark | white | accent" } },
+
+    { "collection": "features", "field": "sort",     "type": "integer" },
+    { "collection": "features", "field": "title",    "type": "string" },
+    { "collection": "features", "field": "body",     "type": "text" },
+    { "collection": "features", "field": "icon",     "type": "string" },
+    { "collection": "features", "field": "style",    "type": "string", "meta": { "note": "dark | teal | white | muted" } },
+    { "collection": "features", "field": "span",     "type": "integer", "meta": { "note": "Grid column span (2 or 4)" } },
+
+    { "collection": "pricing_plans", "field": "sort",         "type": "integer" },
+    { "collection": "pricing_plans", "field": "name",         "type": "string" },
+    { "collection": "pricing_plans", "field": "price_monthly","type": "integer" },
+    { "collection": "pricing_plans", "field": "price_yearly", "type": "integer" },
+    { "collection": "pricing_plans", "field": "description",  "type": "text" },
+    { "collection": "pricing_plans", "field": "cta_label",    "type": "string" },
+    { "collection": "pricing_plans", "field": "highlight",    "type": "boolean" },
+    { "collection": "pricing_plans", "field": "features",     "type": "json",   "meta": { "note": "JSON array of feature strings" } },
+
+    { "collection": "faqs", "field": "sort",     "type": "integer" },
+    { "collection": "faqs", "field": "question", "type": "string" },
+    { "collection": "faqs", "field": "answer",   "type": "text" },
+
+    { "collection": "contacts", "field": "date_created",  "type": "timestamp", "meta": { "readonly": true } },
+    { "collection": "contacts", "field": "naam",          "type": "string" },
+    { "collection": "contacts", "field": "bedrijf",       "type": "string" },
+    { "collection": "contacts", "field": "email",         "type": "string" },
+    { "collection": "contacts", "field": "telefoon",      "type": "string" },
+    { "collection": "contacts", "field": "medewerkers",   "type": "string" },
+    { "collection": "contacts", "field": "huidig_systeem","type": "string" },
+    { "collection": "contacts", "field": "bericht",       "type": "text" },
+    { "collection": "contacts", "field": "status",        "type": "string", "meta": { "note": "new | contacted | demo_planned | won | lost" } },
+
+    { "collection": "tickets", "field": "date_created",  "type": "timestamp", "meta": { "readonly": true } },
+    { "collection": "tickets", "field": "ticket_number", "type": "string", "meta": { "readonly": true } },
+    { "collection": "tickets", "field": "subject",       "type": "string" },
+    { "collection": "tickets", "field": "description",   "type": "text" },
+    { "collection": "tickets", "field": "status",        "type": "string", "meta": { "note": "open | in_progress | waiting | resolved | closed" } },
+    { "collection": "tickets", "field": "priority",      "type": "string", "meta": { "note": "low | medium | high | urgent" } },
+    { "collection": "tickets", "field": "customer_name", "type": "string" },
+    { "collection": "tickets", "field": "customer_email","type": "string" },
+    { "collection": "tickets", "field": "company",       "type": "string" },
+    { "collection": "tickets", "field": "category",      "type": "string", "meta": { "note": "general | billing | technical | feature | other" } },
+
+    { "collection": "ticket_comments", "field": "date_created","type": "timestamp", "meta": { "readonly": true } },
+    { "collection": "ticket_comments", "field": "ticket_id",   "type": "integer" },
+    { "collection": "ticket_comments", "field": "author",      "type": "string" },
+    { "collection": "ticket_comments", "field": "body",        "type": "text" },
+    { "collection": "ticket_comments", "field": "internal",    "type": "boolean", "meta": { "note": "True = alleen zichtbaar voor support-team" } }
+  ],
+  "relations": [
+    {
+      "collection": "ticket_comments",
+      "field": "ticket_id",
+      "related_collection": "tickets"
+    }
+  ]
+}
