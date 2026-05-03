@@ -4,7 +4,7 @@ defineProps<{ active?: string }>()
 const links = [
   { key: 'home', label: 'Product', href: '/' },
   { key: 'pricing', label: 'Prijzen', href: '/pricing' },
-  { key: 'customers', label: 'Klanten', href: '/klanten' },
+  { key: 'customers', label: 'Klanten', href: '#' },
   { key: 'contact', label: 'Contact', href: '/contact' },
 ]
 </script>
