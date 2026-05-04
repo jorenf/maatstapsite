@@ -10,9 +10,9 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   runtimeConfig: {
-    directusToken: process.env.DIRECTUS_TOKEN || '',
+    directusToken: process.env.NUXT_DIRECTUS_TOKEN || '',
     public: {
-      directusUrl: process.env.DIRECTUS_URL || 'https://cms.maatstap.nl',
+      directusUrl: process.env.NUXT_PUBLIC_DIRECTUS_URL || 'https://cms.maatstap.nl',
     },
   },
 
@@ -33,10 +33,6 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: ['/', '/pricing', '/contact', '/tickets'],
-      failOnError: false,
-    },
+    preset: 'node-server',
   },
 })

@@ -9,14 +9,16 @@ useHead({
   ],
 })
 
-const { directusUrl } = useRuntimeConfig().public
+const config = useRuntimeConfig()
+const { directusUrl } = config.public
+const headers = computed(() => config.directusToken ? { Authorization: `Bearer ${config.directusToken}` } : {})
 
 const [plansData, faqsData] = await Promise.all([
   useAsyncData('pricing_plans', () =>
-    $fetch(`${directusUrl}/items/pricing_plans?sort=sort`).catch(() => null)
+    $fetch(`${directusUrl}/items/pricing_plans?sort=sort`, { headers: headers.value }).catch(() => null)
   ),
   useAsyncData('faqs', () =>
-    $fetch(`${directusUrl}/items/faqs?sort=sort`).catch(() => null)
+    $fetch(`${directusUrl}/items/faqs?sort=sort`, { headers: headers.value }).catch(() => null)
   ),
 ])
 

@@ -25,18 +25,19 @@ useHead({
   }],
 })
 
-// Fetch from Directus — falls back to hardcoded defaults in each component if null
-const { directusUrl } = useRuntimeConfig().public
+const config = useRuntimeConfig()
+const { directusUrl } = config.public
+const headers = computed(() => config.directusToken ? { Authorization: `Bearer ${config.directusToken}` } : {})
 
 const [heroData, statsData, testimonialsData] = await Promise.all([
   useAsyncData('hero', () =>
-    $fetch(`${directusUrl}/items/hero`).catch(() => null)
+    $fetch(`${directusUrl}/items/hero`, { headers: headers.value }).catch(() => null)
   ),
   useAsyncData('stats', () =>
-    $fetch(`${directusUrl}/items/stats?sort=sort`).catch(() => null)
+    $fetch(`${directusUrl}/items/stats?sort=sort`, { headers: headers.value }).catch(() => null)
   ),
   useAsyncData('testimonials', () =>
-    $fetch(`${directusUrl}/items/testimonials?sort=sort`).catch(() => null)
+    $fetch(`${directusUrl}/items/testimonials?sort=sort`, { headers: headers.value }).catch(() => null)
   ),
 ])
 
